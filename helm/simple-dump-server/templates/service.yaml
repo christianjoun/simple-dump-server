@@ -5,7 +5,7 @@ metadata:
     app: simple-dump-server
     heritage: {{.Release.Service | quote}}
     release: {{.Release.Name | quote}}
-    chart: {{ replace "+" "_" .Chart.Version | printf "%s-%s" .Chart.Name }}
+    chart: {{ .Chart.Name }}
   annotations:
     prometheus.io/scrape: "true"
   name: simple-dump-server

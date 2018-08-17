@@ -6,7 +6,7 @@ metadata:
     app: simple-dump-server
     heritage: {{.Release.Service | quote}}
     release: {{.Release.Name | quote}}
-    chart: {{ replace "+" "_" .Chart.Version | printf "%s-%s" .Chart.Name }}
+    chart: {{ .Chart.Name }}
   annotations:
     "service-version": {{ .Chart.AppVersion | quote }}
   name: simple-dump-server
@@ -19,7 +19,7 @@ spec:
       labels:
         heritage: {{.Release.Service | quote}}
         release: {{.Release.Name | quote}}
-        chart: {{ replace "+" "_" .Chart.Version | printf "%s-%s" .Chart.Name }}
+        chart: {{ .Chart.Name }}
         app: simple-dump-server
     spec:
       serviceAccountName: simple-dump-server
@@ -32,7 +32,7 @@ spec:
           initialDelaySeconds: 5
           timeoutSeconds: 10
           periodSeconds: 30
-        image: {{required ".Values.image is required" .Values.image }}
+        image: {{required ".Values.image.source is required" .Values.image.source }}
         ports:
         - containerPort: 8080
           protocol: TCP

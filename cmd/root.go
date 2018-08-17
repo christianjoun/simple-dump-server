@@ -33,6 +33,8 @@ var rootCmd = &cobra.Command{
 
 //HTTP Endpoints
 func serve() {
+	logrus.Infof("Hello World")
+
 	r := mux.NewRouter()
 	//Liveness Endpoint
 	r.HandleFunc("/healthz", func(w http.ResponseWriter, _ *http.Request) {
@@ -59,6 +61,7 @@ func serve() {
 		ReadTimeout:  15 * time.Second,
 	}
 
+	logrus.Infof("Starting Server on port 8080....")
 	logrus.Fatal(srv.ListenAndServe())
 }
 

@@ -7,7 +7,7 @@ metadata:
     app: simple-dump-server
     heritage: {{.Release.Service | quote}}
     release: {{.Release.Name | quote}}
-    chart: {{ replace "+" "_" .Chart.Version | printf "%s-%s" .Chart.Name }}
+    chart: {{ .Chart.Name }}
   annotations:
     kubernetes.io/ingress.class: {{ .Values.ingress.class | quote}}
     nginx.ingress.kubernetes.io/secure-backends: "false"

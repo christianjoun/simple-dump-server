@@ -1,4 +1,5 @@
 image:
+  source: kousik93/simple-dump-server:v2
   pullPolicy: IfNotPresent
   resources:
     limits:
@@ -17,5 +18,3 @@ ingress:
 
 ingress:
   fqdn: ""
-
-image: kousik93/simple-dump-server:v1

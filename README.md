@@ -9,3 +9,7 @@ Available endpoints:
 - /test400
 - /test401
 - /test404
+
+
+Helm:
+helm install helm/simple-dump-server --namespace default --set 'ingress.fqdn=example.com' --name simple-dump-server
