@@ -1,5 +1,5 @@
 image:
-  source: kousik93/simple-dump-server:v2
+  source: ${artifact.metadata.image}
   pullPolicy: IfNotPresent
   resources:
     limits:
