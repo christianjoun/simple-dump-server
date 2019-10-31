@@ -1,2 +1,2 @@
 ingress:
-  fqdn: ""
+  fqdn: ${workflow.variables.fqdn-dev-esp-awslab}
