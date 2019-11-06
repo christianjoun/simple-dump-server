@@ -7,6 +7,7 @@ metadata:
     heritage: {{.Release.Service | quote}}
     release: {{.Release.Name | quote}}
     chart: {{ .Chart.Name }}
+    class: {{ .Values.ingress.class | quote }}
   annotations:
     "service-version": {{ .Chart.AppVersion | quote }}
   name: simple-dump-server
