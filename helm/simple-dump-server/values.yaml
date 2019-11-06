@@ -1,6 +1,6 @@
 image:
   source: ${artifact.metadata.image}
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   resources:
     limits:
       cpu: "300m"
