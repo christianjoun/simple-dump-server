@@ -11,7 +11,7 @@ image:
 args:
   tillerNamespace: secure-helm
 ingress:
-  fqdn: ${workflow.variables.fqdn-dev-esp-awslab}
   class: internal
+  fqdn: ${workflow.variables.fqdn-dev-esp-awslab}
   certSecretName:
   affinity: ''
