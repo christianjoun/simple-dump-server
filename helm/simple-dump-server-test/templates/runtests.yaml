@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: simple-dump-server-integration-test
+  annotations:
+    helm.sh/hook: "test-success"
+    "service-version": {{ .Chart.AppVersion | quote }}
+  labels:
+    app: simple-dump-server-test
+    heritage: {{.Release.Service | quote}}
+    release: {{.Release.Name | quote}}
+    chart: {{ .Chart.Name }}
+spec:
+  dnsPolicy: "ClusterFirst"
+  dnsConfig:
+    options:
+    - name: single-request-reopen
+  serviceAccountName: simple-dump-server-test
+  restartPolicy: Never
+  containers:
+  - name: wait-service
+    image: centos:7
+    command:
+      - 'sh'
+      - '-c'
+      - 'until curl -k https://{{ .Values.ingress.fqdn }}/healthz; do echo "waiting for simple-dump-server"; sleep 2; done;'

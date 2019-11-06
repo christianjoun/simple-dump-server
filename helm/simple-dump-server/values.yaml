@@ -15,6 +15,3 @@ ingress:
   class: internal
   certSecretName:
   affinity: ''
-
-ingress:
-  fqdn: ""
