@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: simple-dump-server
+    heritage: {{.Release.Service | quote}}
+    release: {{.Release.Name | quote}}
+    chart: {{ .Chart.Name }}
+  annotations:
+    prometheus.io/scrape: "true"
+  name: simple-dump-server-canary
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+    name: https
+  selector:
+    harness.io/track : canary
+  sessionAffinity: None
+  type: ClusterIP
