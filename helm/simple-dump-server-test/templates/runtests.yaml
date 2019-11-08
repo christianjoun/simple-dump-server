@@ -15,7 +15,7 @@ spec:
   dnsConfig:
     options:
     - name: single-request-reopen
-  serviceAccountName: simple-dump-server-test
+  serviceAccountName: simple-dump-server-integration-test
   restartPolicy: Never
   containers:
   - name: wait-service
