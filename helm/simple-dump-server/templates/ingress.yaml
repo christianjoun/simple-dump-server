@@ -32,5 +32,11 @@ spec:
       paths:
       - backend:
           serviceName: simple-dump-server
-          servicePort: 8080
+          servicePort: 8080   
+  - host: {{ required ".Values.ingress.fqdnCanary is required if .Values.ingress.class is non-empty" .Values.ingress.fqdnCanary | quote}}
+    http:
+      paths:
+      - backend:
+          serviceName: simple-dump-server-canary
+          servicePort: 8080           
 {{- end }}
