@@ -16,7 +16,7 @@ func TestDumpRequest(t *testing.T) {
 
 	// We create a ResponseRecorder (which satisfies http.ResponseWriter) to record the response.
 	rr := httptest.NewRecorder()
-	handler := dumpRequest(http.StatusOK)
+	handler := dumpRequest(http.StatusOK, "test200")
 
 	handler.ServeHTTP(rr, req)
 
